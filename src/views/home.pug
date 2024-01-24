@@ -1,0 +1,23 @@
+extends base
+include mixins/video
+
+block content 
+    div.home-page
+        div.menu-bar
+            div.menu-bar__part 
+                i.far.fa-heart
+                span="home"
+            div.menu-bar__part 
+                i.fas.fa-hashtag
+                span="shorts"
+            div.menu-bar__part 
+                i.fas.fa-circle-notch
+                span="sub"
+            div.menu-bar__part 
+                i.fas.fa-reply
+                span="share"
+        div.video__grid.video__home
+            each potato in videos 
+                +video(potato)
+            else 
+                span.empty__message No videos found

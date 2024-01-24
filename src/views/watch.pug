@@ -1,0 +1,66 @@
+extends base.pug
+
+block content
+    div#videoContainer(data-id=video._id)
+        video(src="/" + video.fileUrl).main-video
+        div#videoControls
+            button#play 
+                i.fa-solid.fa-play
+            div.videoControls_time
+                span#currentTime 00:00
+                span  / 
+                span#totalTime 00:00
+            div 
+                input(type="range", min="0", value="0", step="1")#timeline.videoControls_timeline
+            div.videoControls_volume
+                button#mute
+                    i.fa-solid.fa-volume-up 
+                input(type="range", min="0", max="1", value="0.5", step="0.1")#volume.volume-range
+            div 
+                button#fullScreen
+                    i.fa-solid.fa-expand
+    div.video__description
+        p.video__title=video.title
+        div.video-part1
+            a(href=`/users/${video.owner._id}`)
+                img(src="/" + video.owner.avatarUrl)
+            a(href=`/users/${video.owner._id}`)=video.owner.name
+        div.video-part2
+            p="조회수 " + video.meta.views + "회"
+            p=video.description
+            p=video.hashtags
+
+    //- div
+    //-     p=video.description 
+    //-     small=video.createdAt
+    //- div 
+    //-     small Uploaded by 
+    //-         a(href=`/users/${video.owner._id}`)=video.owner.name
+    //- p 
+    //- if String(loggedInUser._id) === String(video.owner._id)
+    //-     a(href=`${video.id}/edit`) Edit Video >>
+    //-     br
+    //-     a(href=`${video.id}/delete`) Delete Video >>
+    if loggedIn
+        div.video__add-comments
+            form.video__comments-form#commentForm
+                textarea(cols="60", rows="2", placeholder="♪ Write a comment")#textarea
+                button Add Comment 
+    div.video__comments 
+        ul  
+            each comment in video.comments.reverse()
+                li.video__comment(data-id=comment._id)
+                        img(src="/") 
+                        //-  + comment.owner.avatarUrl
+                            span.comment__part-name #{comment.owner}
+                        div.comment__part
+                            div.comment__part1
+                                span.comment__part-text #{comment.text}
+                            div.comment__part2
+                                if String(comment.owner._id) === String(loggedInUser._id)
+                                    button#deleteBtn ✖
+
+block scripts
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")

@@ -1,0 +1,45 @@
+form {
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+input {
+  all: unset;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba($color: #5d5b5b, $alpha: 0.6);
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  width: 90%;
+  &::placeholder {
+    color: rgba($color: white, $alpha: 0.6);
+  }
+}
+
+input[type="submit"] {
+  background-color: white;
+  border-radius: 25px;
+  color: black;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  all: unset;
+  border-radius: 15px;
+  background-color: rgba($color: white, $alpha: 0.3);
+  height: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  box-shadow: -100vw 0 0 100vw white;
+}

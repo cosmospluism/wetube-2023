@@ -1,0 +1,18 @@
+extends ../base
+
+block content
+    div#errorMessage
+        if errorMessage
+            span=errorMessage
+    form(method="POST")
+        //- placeholder 앞에 icon 삽입하기
+        input(name="username", type="text", placeholder="username", required) 
+        input(name="password", type="password", placeholder="password", required) 
+        input(type="submit", value="Login")
+        div.auth-switch 
+            span Don't have an account? 
+            a(href="/join") Create an account &rarr;
+        include ../partials/social-login
+
+    //- https://github.com/login/oauth/authorize?client_id=8af3b5ce7a5072a2c461&scope	=read:user
+    

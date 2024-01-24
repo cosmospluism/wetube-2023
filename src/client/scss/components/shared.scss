@@ -1,0 +1,41 @@
+.video__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.empty__message {
+  width: 1500px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.auth-switch {
+  text-indent: 7px;
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+}
+
+.label__form {
+  label {
+    display: block;
+    font-size: 18px;
+    text-indent: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+#errorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+}
