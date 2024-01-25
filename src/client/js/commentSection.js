@@ -55,6 +55,7 @@ const addComment = (text, id) => {
   commentPart2.appendChild(deleteBtn);
   // commentPart.appendChild(commentName);
   videoComments.prepend(newComment);
+  deleteBtn.addEventListener("click", handleDeleteComment);
 };
 
 const handleSubmit = async (event) => {
