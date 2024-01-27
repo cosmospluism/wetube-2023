@@ -1,4 +1,18 @@
 import multer from "multer"; // 파일업로드용 미들웨어
+import multerS3 from "multer-s3"; // AWS S3용 파일 저장엔진
+import aws from "aws-sdk";
+
+const s3 = new aws.S3({
+  credentials: {
+    accessKeyId: process.env.AWS_ID,
+    secretAccessKey: process.env.AWS_SECRET,
+  },
+});
+
+const multerUploader = multerS3({
+  s3: s3,
+  bucket: "wetube2023-4",
+});
 
 // pug에서 session 내용을 사용하기 위함 : locals 이용
 export const localMiddleware = (req, res, next) => {
@@ -34,8 +48,10 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
   dest: "upload/avatars/",
   limits: { filesize: 3000000 },
+  storage: multerUploader,
 });
 export const videoUpload = multer({
   dest: "upload/videos/",
   limits: { filesize: 10000000 }, // 파일크기 제한
+  storage: multerUploader,
 });

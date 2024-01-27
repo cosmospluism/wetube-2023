@@ -17,6 +17,7 @@
   "author": "cosmospluism",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.501.0",
     "@ffmpeg/core": "^0.8.5",
     "@ffmpeg/ffmpeg": "^0.9.7",
     "bcrypt": "^5.1.1",
