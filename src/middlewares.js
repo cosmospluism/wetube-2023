@@ -1,8 +1,9 @@
 import multer from "multer"; // 파일업로드용 미들웨어
 import multerS3 from "multer-s3"; // AWS S3용 파일 저장엔진
-import aws from "aws-sdk";
+import { S3Client } from "@aws-sdk/client-s3";
 
-const s3 = new aws.S3({
+const s3 = new S3Client({
+  region: "ap-northeast-2",
   credentials: {
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
@@ -12,6 +13,7 @@ const s3 = new aws.S3({
 const multerUploader = multerS3({
   s3: s3,
   bucket: "wetube2023-4",
+  acl: "public-read",
 });
 
 // pug에서 session 내용을 사용하기 위함 : locals 이용

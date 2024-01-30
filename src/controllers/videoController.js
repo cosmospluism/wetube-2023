@@ -78,7 +78,7 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: file.path, // 비디오 주소
+      fileUrl: file.location, // 비디오 주소
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });

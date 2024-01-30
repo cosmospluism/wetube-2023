@@ -201,7 +201,6 @@ export const getEdit = (req, res) =>
 
 // 프로필 수정 업로드
 export const postEdit = async (req, res) => {
-  // ES6 작성법 (뭐라고 검색해야 할지 모르겠음)
   const {
     session: {
       user: { _id, avatarUrl }, // req.session.user._id
@@ -225,12 +224,11 @@ export const postEdit = async (req, res) => {
         : "This email is already taken.",
     });
   }
-
   // 4. 유저정보 업데이트
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file ? file.location : avatarUrl,
       name,
       email,
       username,
