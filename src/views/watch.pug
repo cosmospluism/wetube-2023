@@ -23,7 +23,7 @@ block content
         p.video__title=video.title
         div.video-part1
             a(href=`/users/${video.owner._id}`)
-                img(src=video.owner.avatarUrl)
+                img(src=video.owner.avatarUrl, crossorigin)
             a(href=`/users/${video.owner._id}`)=video.owner.name
         div.video-part2
             p="조회수 " + video.meta.views + "회"
@@ -50,7 +50,7 @@ block content
         ul  
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment._id)
-                        img(src="/") 
+                        img(src="", crossorigin) 
                         //-  + comment.owner.avatarUrl
                             span.comment__part-name #{comment.owner}
                         div.comment__part

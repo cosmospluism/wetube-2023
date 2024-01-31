@@ -47,6 +47,7 @@ export const postJoin = async (req, res) => {
   // try catch 문(에러 처리용)
   try {
     await User.create({
+      avatarUrl: "",
       name,
       email,
       username,

@@ -54,6 +54,6 @@ export const avatarUpload = multer({
 });
 export const videoUpload = multer({
   dest: "upload/videos/",
-  limits: { filesize: 10000000 }, // 파일크기 제한
+  limits: { filesize: 10000000 },
   storage: multerUploader,
 });
