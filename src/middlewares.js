@@ -14,6 +14,8 @@ const multerUploader = multerS3({
   s3: s3,
   bucket: "wetube2023-4",
   acl: "public-read",
+  // ContentType: "image/jpeg",
+  // contentType: multerS3.AUTO_CONTENT_TYPE,
 });
 
 // pug에서 session 내용을 사용하기 위함 : locals 이용
