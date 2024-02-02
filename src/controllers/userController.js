@@ -209,7 +209,7 @@ export const postEdit = async (req, res) => {
     body: { name, email, username, location }, // req.body.name ...
     file, // req.file (이미지 파일)
   } = req;
-
+  console.log(file);
   // 1. 작성값과 기존값이 다른 지 확인
   // 2. 작성값을 포함하고 있는 유저가 있는 지 확인
   // 3. 조건 미충족 시 에러처리
