@@ -1,19 +1,21 @@
 extends base
 
 block content 
-    div
-        video#preview
-        button#startBtn Start Recording
-        button#downloadBtn 
-            i.fa-solid.fa-circle-down
     if errorMessage 
         span=errorMessage
-    form(method="POST", enctype="multipart/form-data").label__form
-        label(for="video") Upload Video
-        input(name="video", type="file", accept="video/*", id="video", required)
-        input(name="title" type="text", placeholder="Title", required, maxlength=40)
-        input(name="description" type="text", placeholder="Description", required, maxlength=70)
-        input(name="hashtags" type="text", placeholder="Hashtags, separated by comma", required)
-        input(type="submit", value="Submit")
+    div.upload-page 
+        div.recording
+            video#preview
+            div.recording__btns
+                button#startBtn Start Recording
+                button#downloadBtn 
+                    i.fa-solid.fa-circle-down
+        form(method="POST", enctype="multipart/form-data").label__form.upload-form
+            label(for="video") Upload Video
+            input(name="video", type="file", accept="video/*", id="video", required)
+            input(name="title" type="text", placeholder="Title", required, maxlength=40)
+            input(name="description" type="text", placeholder="Description", required, maxlength=70)
+            input(name="hashtags" type="text", placeholder="Hashtags, separated by comma", required)
+            input(type="submit", value="Submit")
 block scripts 
     script(src="/static/js/recorder.js")

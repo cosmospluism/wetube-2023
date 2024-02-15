@@ -3,13 +3,6 @@ const form = document.getElementById("commentForm");
 const textarea = document.getElementById("textarea");
 const deleteBtn = document.querySelectorAll("#deleteBtn");
 
-// const handleKeypress = (event) => {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//     return form.submit();
-//   }
-// };
-
 const handleDeleteComment = async (event) => {
   const comment = event.target.closest(".video__comment");
   const commentId = comment.dataset.id;
@@ -80,11 +73,17 @@ const handleSubmit = async (event) => {
   //   window.location.reload();
 };
 
+// const handleKeypress = (event) => {
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     form.handleSubmit();
+//   }
+// };
+
 if (form) {
   form.addEventListener("submit", handleSubmit);
+  // textarea.addEventListener("keydown", handleKeypress);
 }
 
 // deleteBtn이 list를 반환하므로 이벤트리스너 사용을 위해서는 iterate 필요
 deleteBtn.forEach((btn) => btn.addEventListener("click", handleDeleteComment));
-
-// textarea.addEventListener("keypress", handleKeypress);

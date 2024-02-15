@@ -1,0 +1,33 @@
+.upload-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 100px;
+}
+.recording {
+  display: flex;
+  flex-direction: column;
+}
+.recording #preview {
+  width: 350px;
+}
+.recording__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.recording__btns button {
+  all: unset;
+  font-size: 18px;
+}
+.recording__btns button:first-child {
+  margin-right: 10px;
+}
+
+.upload-form {
+  margin: 0;
+  margin-top: 20px;
+}

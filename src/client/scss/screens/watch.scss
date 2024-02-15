@@ -68,6 +68,10 @@
       color: white;
       border-radius: 10px;
       font-weight: 600;
+      cursor: pointer;
+    }
+    button:active {
+      background-color: pink;
     }
   }
 }
