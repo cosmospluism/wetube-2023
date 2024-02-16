@@ -22,9 +22,24 @@
 .recording__btns button {
   all: unset;
   font-size: 18px;
+  cursor: pointer;
 }
 .recording__btns button:first-child {
   margin-right: 10px;
+  color: red;
+}
+.recording__btns #downloadBtn {
+  width: 120px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: black;
+  background-color: whitesmoke;
+}
+.recording__btns #downloadBtn span {
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 .upload-form {

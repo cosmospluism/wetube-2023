@@ -1,5 +1,6 @@
 // import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 const startBtn = document.getElementById("startBtn");
+const startBtnIcon = startBtn.querySelector("i");
 const videoPreview = document.getElementById("preview");
 const downloadBtn = document.getElementById("downloadBtn");
 
@@ -30,7 +31,7 @@ const handleDownload = async () => {
 };
 
 const handleStop = () => {
-  startBtn.innerText = "Start Recording";
+  startBtnIcon.className = "fas fa-circle";
   startBtn.removeEventListener("click", handleStop);
   startBtn.addEventListener("click", handleStart);
 
@@ -48,7 +49,7 @@ const handleStop = () => {
 };
 
 const handleStart = () => {
-  startBtn.innerText = "Stop Recording";
+  startBtnIcon.className = "fas fa-stop";
   startBtn.removeEventListener("click", handleStart);
   startBtn.addEventListener("click", handleStop);
 
