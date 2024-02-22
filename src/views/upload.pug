@@ -6,12 +6,9 @@ block content
     div.upload-page 
         div.recording
             video#preview
-            div.recording__btns
-                button#startBtn 
-                    i.fas.fa-circle
-                button#downloadBtn 
-                    i.fa-solid.fa-circle-down 
-                    span download
+            button#actionBtn.recording-btn 
+                i.fas.fa-circle
+                span Start Recording
         form(method="POST", enctype="multipart/form-data").label__form.upload-form
             label(for="video") Upload Video
             input(name="video", type="file", accept="video/*", id="video", required)
