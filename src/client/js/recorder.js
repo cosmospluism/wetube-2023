@@ -24,7 +24,7 @@ const downloadFunc = function (fileUrl, fileName) {
 };
 
 const handleDownload = async () => {
-  actionBtn.removeEventListener("click", handleStart);
+  actionBtn.removeEventListener("click", handleDownload);
   actionBtnIcon.className = "";
   actionBtnSpan.innerText = "Transcoding...";
   actionBtn.disabled = true;
@@ -74,7 +74,7 @@ const handleDownload = async () => {
   actionBtn.disabled = false;
   actionBtnIcon.className = "fas fa-circle";
   actionBtnSpan.innerText = "Recording again";
-  actionBtn.addEventListener("click", handleStart); // 수정 필요 24.02.22
+  actionBtn.addEventListener("click", handleStart);
 };
 
 const handleStop = () => {
