@@ -58,7 +58,6 @@ const handleDownload = async () => {
   const thumbUrl = URL.createObjectURL(thumbBlob);
 
   downloadFunc(mp4Url, "MyRecording.mp4");
-  videoPreview.pause();
   downloadFunc(thumbUrl, "MyThumbnail.jpg");
 
   // unlink = delete a file
@@ -72,6 +71,7 @@ const handleDownload = async () => {
   URL.revokeObjectURL(videoFile);
 
   actionBtn.disabled = false;
+  init();
   actionBtnIcon.className = "fas fa-circle";
   actionBtnSpan.innerText = "Recording again";
   actionBtn.addEventListener("click", handleStart);
@@ -79,7 +79,7 @@ const handleDownload = async () => {
 
 const handleStop = () => {
   actionBtnIcon.className = "fas fa-arrow-down";
-  actionBtnSpan.innerText = "Download Video";
+  actionBtnSpan.innerText = "Download";
   actionBtn.removeEventListener("click", handleStop);
   actionBtn.addEventListener("click", handleDownload);
 
