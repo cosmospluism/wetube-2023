@@ -1,6 +1,6 @@
 .video-mixin {
   .video-mixin__thumb {
-    background-color: whitesmoke;
+    background-color: rgba($color: white, $alpha: 0.4);
     width: 400px;
     height: 230px;
     border-radius: 15px;

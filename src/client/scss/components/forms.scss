@@ -10,16 +10,16 @@ input {
   border-radius: 5px;
   border: 1px solid rgba($color: #5d5b5b, $alpha: 0.6);
   background-color: black;
-  color: white;
+  color: pink;
   font-size: 18px;
   width: 90%;
   &::placeholder {
-    color: rgba($color: white, $alpha: 0.6);
+    color: rgba($color: pink, $alpha: 0.6);
   }
 }
 
 input[type="submit"] {
-  background-color: white;
+  background-color: pink;
   border-radius: 25px;
   color: black;
   text-align: center;

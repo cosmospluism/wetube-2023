@@ -42,13 +42,13 @@
     margin-top: 55px;
     textarea {
       background: none;
-      color: white;
+      color: $pink;
       font-size: 18px;
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
       text-indent: 15px;
       border: none;
-      border-bottom: 2px solid rgba($color: white, $alpha: 0.3);
+      border-bottom: 2px solid $pink;
       margin-right: 20px;
       width: 84%;
     }
@@ -65,7 +65,7 @@
       height: 48px;
       border: 2px solid rgba($color: gray, $alpha: 0.7);
       background-color: black;
-      color: white;
+      color: $pink;
       border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
@@ -112,7 +112,7 @@
       width: auto;
       button {
         background: none;
-        color: white;
+        color: $pink;
         font-size: 18px;
         // border: none;
         // outline: none;

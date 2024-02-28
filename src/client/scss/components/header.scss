@@ -8,22 +8,24 @@ header {
   .header__logo {
     display: flex;
     align-items: center;
-    color: $red;
     font-size: 30px;
     padding-left: 3px;
     .fa-solid.fa-bars {
       font-size: 25px;
-      color: white;
+      color: $pink;
       opacity: 0.7;
       margin-right: 30px;
     }
     .header__text {
-      color: white;
-      font-family: "Arial Narrow";
+      color: $pink;
+      font-family: "Ubuntu";
       font-size: 24px;
       font-weight: 600;
       margin-left: 5px;
     }
+  }
+  .header__img {
+    width: 35px;
   }
 
   ul {
