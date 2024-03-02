@@ -34,7 +34,13 @@ app.use(flash()); // session을 이용하기 때문에 session 밑에
 app.use(localMiddleware);
 
 app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin,X-Requested-With,Content-Type,Accept"
+  );
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Embedder-Policy", "credentialless");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   next();
 });
