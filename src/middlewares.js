@@ -5,6 +5,7 @@ import { S3Client } from "@aws-sdk/client-s3";
 const s3 = new S3Client({
   region: "ap-northeast-2",
   credentials: {
+    apiVersion: "2022-10-07",
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
   },
@@ -12,7 +13,7 @@ const s3 = new S3Client({
 
 const multerUploader = multerS3({
   s3: s3,
-  bucket: "wetube2023-4",
+  bucket: "withpink",
   acl: "public-read",
 });
 
