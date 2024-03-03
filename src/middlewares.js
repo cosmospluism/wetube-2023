@@ -5,16 +5,28 @@ import { S3Client } from "@aws-sdk/client-s3";
 const s3 = new S3Client({
   region: "ap-northeast-2",
   credentials: {
-    apiVersion: "2022-10-07",
+    apiVersion: "2006-03-01",
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
   },
 });
 
-const multerUploader = multerS3({
+const s3ImageUploader = multerS3({
   s3: s3,
   bucket: "withpink",
   acl: "public-read",
+  key: function (req, file, cb) {
+    cb(null, "images/" + file.originalname);
+  },
+});
+
+const s3VideoUploader = multerS3({
+  s3: s3,
+  bucket: "withpink",
+  acl: "public-read",
+  key: function (req, file, cb) {
+    cb(null, "videos/" + file.originalname);
+  },
 });
 
 // pug에서 session 내용을 사용하기 위함 : locals 이용
@@ -51,10 +63,10 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
   dest: "upload/avatars/",
   limits: { filesize: 3000000 },
-  storage: multerUploader,
+  storage: s3ImageUploader,
 });
 export const videoUpload = multer({
   dest: "upload/videos/",
   limits: { filesize: 10000000 },
-  storage: multerUploader,
+  storage: s3VideoUploader,
 });
