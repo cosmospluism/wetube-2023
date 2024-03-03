@@ -6,7 +6,7 @@ block content
         if loggedInUser.avatarUrl.includes("github")
             img.avatar(src=user.avatarUrl, crossorigin)
         else
-            img.avatar(src="/" + user.avatarUrl, crossorigin)
+            img.avatar(src=user.avatarUrl, crossorigin)
         h3=user.name
     div.video__grid
         each video in user.videos
