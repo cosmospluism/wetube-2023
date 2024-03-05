@@ -212,18 +212,19 @@ export const postEdit = async (req, res) => {
   // 1. 작성값과 기존값이 다른 지 확인
   // 2. 작성값을 포함하고 있는 유저가 있는 지 확인
   // 3. 조건 미충족 시 에러처리
-  const usernameExits =
-    username !== req.session.username ? await User.findOne({ username }) : null; // null or undefined 상관 없는 지 모르겠음 (해본 바로는 둘다 괜찮음)
-  const emailExits =
-    email !== req.session.email ? await User.findOne({ email }) : null;
-  if (usernameExits || emailExits) {
-    return res.status(400).render("users/edit-profile", {
-      pageTitle: "Edit Profile",
-      errorMessage: usernameExits
-        ? "This username is already taken."
-        : "This email is already taken.",
-    });
-  }
+  // const usernameExits =
+  //   username !== req.session.username ? await User.findOne({ username }) : null;
+  //   // null or undefined 상관 없는 지 모르겠음 (해본 바로는 둘다 괜찮음)
+  // const emailExits =
+  //   email !== req.session.email ? await User.findOne({ email }) : null;
+  // if (usernameExits || emailExits) {
+  //   return res.status(400).render("users/edit-profile", {
+  //     pageTitle: "Edit Profile",
+  //     errorMessage: usernameExits
+  //       ? "This username is already taken."
+  //       : "This email is already taken.",
+  //   });
+  // }
   // 4. 유저정보 업데이트
   const updatedUser = await User.findByIdAndUpdate(
     _id,
