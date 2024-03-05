@@ -1,8 +1,8 @@
 extends ../base
 
 block content 
-    form(method="POST", enctype="multipart/form-data").label__form
-        label(for="avatar") Avatar
+    form(method="POST", enctype="multipart/form-data").label__form.edit
+        label(for="avatar") 
         input(type="file", id="avatar", name="avatar", accept="image/*")
         input(name="name", type="text", placeholder="name", value=loggedInUser.name) 
         input(name="email", type="email", placeholder="email", value=loggedInUser.email)

@@ -25,11 +25,13 @@ block content
             a(href=`/users/${video.owner._id}`)
                 img(src=video.owner.avatarUrl, crossorigin)
             a(href=`/users/${video.owner._id}`)=video.owner.name
+        if String(loggedInUser._id) === String(video.owner._id)
+            a(href=`${video.id}/edit`).video__editBtn Edit
+            a(href=`${video.id}/delete`).video__deleteBtn Delete
         div.video-part2
             p="조회수 " + video.meta.views + "회"
             p=video.description
             p=video.hashtags
-
     //- div
     //-     p=video.description 
     //-     small=video.createdAt
@@ -37,10 +39,6 @@ block content
     //-     small Uploaded by 
     //-         a(href=`/users/${video.owner._id}`)=video.owner.name
     //- p 
-    //- if String(loggedInUser._id) === String(video.owner._id)
-    //-     a(href=`${video.id}/edit`) Edit Video >>
-    //-     br
-    //-     a(href=`${video.id}/delete`) Delete Video >>
     if loggedIn
         div.video__add-comments
             form.video__comments-form#commentForm

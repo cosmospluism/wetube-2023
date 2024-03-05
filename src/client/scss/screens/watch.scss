@@ -28,7 +28,24 @@
     padding: 15px;
     font-size: 16px;
     line-height: 1.5;
+    margin-top: 25px;
   }
+}
+.video__editBtn,
+.video__deleteBtn {
+  font-size: 20px;
+  font-weight: 800;
+  background-color: rgba($color: $pink, $alpha: 0.2);
+  border-radius: 10px;
+  padding: 6px 10px;
+  transition: all 0.3s;
+}
+.video__editBtn {
+  margin-right: 10px;
+}
+.video__editBtn:hover,
+.video__deleteBtn:hover {
+  color: black;
 }
 
 .video__add-comments {
@@ -113,11 +130,18 @@
       width: auto;
       button {
         background: none;
+        background-color: rgba($color: $pink, $alpha: 0.2);
         color: $pink;
-        font-size: 18px;
-        // border: none;
-        // outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 2px 8px;
+        font-size: 20px;
+        text-align: center;
         cursor: pointer;
+        transition: all 0.3s;
+      }
+      button:hover {
+        color: black;
       }
     }
   }
