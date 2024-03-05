@@ -7,7 +7,7 @@ form {
 input {
   all: unset;
   padding: 15px 20px;
-  border-radius: 5px;
+  // border-radius: 5px;
   border: 1px solid rgba($color: #5d5b5b, $alpha: 0.6);
   background-color: black;
   color: pink;
@@ -21,7 +21,7 @@ input {
 input[type="submit"] {
   background-color: pink;
   border-radius: 25px;
-  color: black;
+  color: $pink;
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
