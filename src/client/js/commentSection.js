@@ -76,13 +76,13 @@ const handleSubmit = async (event) => {
 // const handleKeypress = (event) => {
 //   if (event.keyCode === 13) {
 //     event.preventDefault();
-//     form.handleSubmit();
+//     form.submit();
 //   }
 // };
 
+// textarea.addEventListener("keydown", handleKeypress);
 if (form) {
   form.addEventListener("submit", handleSubmit);
-  // textarea.addEventListener("keydown", handleKeypress);
 }
 
 // deleteBtn이 list를 반환하므로 이벤트리스너 사용을 위해서는 iterate 필요
