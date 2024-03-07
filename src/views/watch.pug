@@ -20,14 +20,16 @@ block content
                 button#fullScreen
                     i.fa-solid.fa-expand
     div.video__description
-        p.video__title=video.title
+        div.video__titlePart
+            p.video__title=video.title
+            div
+                if String(loggedInUser._id) === String(video.owner._id)
+                    a(href=`${video.id}/edit`).video__editBtn Edit
+                    a(href=`${video.id}/delete`).video__deleteBtn Delete
         div.video-part1
             a(href=`/users/${video.owner._id}`)
                 img(src=video.owner.avatarUrl, crossorigin)
             a(href=`/users/${video.owner._id}`)=video.owner.name
-        if String(loggedInUser._id) === String(video.owner._id)
-            a(href=`${video.id}/edit`).video__editBtn Edit
-            a(href=`${video.id}/delete`).video__deleteBtn Delete
         div.video-part2
             p="조회수 " + video.meta.views + "회"
             p=video.description
@@ -48,7 +50,7 @@ block content
         ul  
             each comment in video.comments.reverse()
                 li.video__comment(data-id=comment._id)
-                        img(src="", crossorigin) 
+                        img(src=comment.owner.avatarUrl, crossorigin) 
                         //-  + comment.owner.avatarUrl
                             span.comment__part-name #{comment.owner}
                         div.comment__part
