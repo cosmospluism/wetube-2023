@@ -18,35 +18,39 @@ const handleDeleteComment = async (event) => {
   }
 };
 
-const addComment = (text, id) => {
+const addComment = (text, id, imgUrl, name) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.className = "video__comment";
   newComment.dataset.id = id;
   const img = document.createElement("img");
-  img.src = "/";
+  img.src = imgUrl;
   newComment.appendChild(img);
   const commentPart = document.createElement("div");
   commentPart.className = "comment__part";
   newComment.appendChild(commentPart);
-  // const commentName = document.createElement("span");
-  // commentName.className = "comment__part-name";
-  // commentText.innerText = ` ${comment.owner}`; // comment 지역변수 선언할당 필요..ㅠ
+  const commentName = document.createElement("span");
+  commentName.className = "comment__part-name";
+  commentName.innerText = `${name}`;
+  commentPart.appendChild(commentName);
+  const commentTextPart = document.createElement("div");
+  commentTextPart.className = "comment__textPart";
+  commentPart.appendChild(commentTextPart);
+
   const commentPart1 = document.createElement("div");
   commentPart1.className = "comment__part1";
-  commentPart.appendChild(commentPart1);
+  commentTextPart.appendChild(commentPart1);
   const commentText = document.createElement("span");
   commentText.className = "comment__part-text";
   commentText.innerText = ` ${text}`;
   commentPart1.appendChild(commentText);
-
   const commentPart2 = document.createElement("div");
   commentPart2.className = "comment__part2";
-  commentPart.appendChild(commentPart2);
+  commentTextPart.appendChild(commentPart2);
   const deleteBtn = document.createElement("button");
   deleteBtn.innerText = "✖";
   commentPart2.appendChild(deleteBtn);
-  // commentPart.appendChild(commentName);
+
   videoComments.prepend(newComment);
   deleteBtn.addEventListener("click", handleDeleteComment);
 };
@@ -67,8 +71,8 @@ const handleSubmit = async (event) => {
   });
   if (response.status === 201) {
     textarea.value = "";
-    const { newCommentId } = await response.json(); // 백엔드로부터 받은 정보 (id)
-    addComment(text, newCommentId); // 얻은 id를 인수로 넣어줌
+    const { newCommentId, avatarImg, name } = await response.json(); // 백엔드로부터 받은 정보 (id)
+    addComment(text, newCommentId, avatarImg, name); // 얻은 id를 인수로 넣어줌
   }
   //   window.location.reload();
 };

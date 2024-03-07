@@ -153,13 +153,22 @@ export const createComment = async (req, res) => {
     return res.sendStatus(404);
   }
   const comment = await Comment.create({
+    avatarUrl: user.avatarUrl,
     text,
     owner: user._id,
     video: id,
   });
+  const commentPopulate = await Comment.findById(comment._id).populate("owner");
+  const commentOwnerName = commentPopulate.owner.name;
   video.comments.push(comment._id);
   await video.save();
-  return res.status(201).json({ newCommentId: comment._id });
+  return res
+    .status(201)
+    .json({
+      newCommentId: comment._id,
+      avatarImg: comment.avatarUrl,
+      name: commentOwnerName,
+    });
   // res.json() > response를 보냄
   // 프론트엔드에 comment._id를 보내기 위해, json 바디에 담아 보냄
 

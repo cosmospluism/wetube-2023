@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const commentSchema = new mongoose.Schema({
+  avatarUrl: String,
   text: { type: String, requird: true },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
   video: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Video" },
