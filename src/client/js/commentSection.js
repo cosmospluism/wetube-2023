@@ -19,6 +19,7 @@ const handleDeleteComment = async (event) => {
 };
 
 const addComment = (text, id, imgUrl, name) => {
+  // new comment
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.className = "video__comment";
@@ -29,6 +30,7 @@ const addComment = (text, id, imgUrl, name) => {
   const commentPart = document.createElement("div");
   commentPart.className = "comment__part";
   newComment.appendChild(commentPart);
+  // comment part
   const commentName = document.createElement("span");
   commentName.className = "comment__part-name";
   commentName.innerText = `${name}`;
@@ -36,7 +38,7 @@ const addComment = (text, id, imgUrl, name) => {
   const commentTextPart = document.createElement("div");
   commentTextPart.className = "comment__textPart";
   commentPart.appendChild(commentTextPart);
-
+  // comment text part
   const commentPart1 = document.createElement("div");
   commentPart1.className = "comment__part1";
   commentTextPart.appendChild(commentPart1);
@@ -77,17 +79,16 @@ const handleSubmit = async (event) => {
   //   window.location.reload();
 };
 
-// const handleKeypress = (event) => {
-//   if (event.keyCode === 13) {
-//     event.preventDefault();
-//     form.submit();
-//   }
-// };
+const handleKeydown = (event) => {
+  if (event.keyCode == 13) {
+    event.preventDefault();
+    form.querySelector("button").click();
+  }
+};
 
-// textarea.addEventListener("keydown", handleKeypress);
 if (form) {
   form.addEventListener("submit", handleSubmit);
 }
-
+textarea.addEventListener("keydown", handleKeydown);
 // deleteBtn이 list를 반환하므로 이벤트리스너 사용을 위해서는 iterate 필요
 deleteBtn.forEach((btn) => btn.addEventListener("click", handleDeleteComment));
