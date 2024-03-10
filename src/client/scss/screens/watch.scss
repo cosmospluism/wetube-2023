@@ -93,9 +93,8 @@
       cursor: pointer;
       transition: all 0.7s;
     }
-    button:active {
-      color: black;
-      background-color: rgba($color: black, $alpha: 0.7);
+    button:hover:after {
+      content: "💗";
     }
   }
 }
