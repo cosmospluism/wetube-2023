@@ -1,8 +1,9 @@
 extends base
 
 block content
-    h4 Update video 
-    form(method="POST")
+    form.edit-video(method="POST")
+        a.backIcon(href="javascript:history.back()")
+            i.fas.fa-arrow-left
         input(name="title", type=text, placeholder="Title", value=video.title, required) 
         input(name="description" type="text", placeholder="Description", value=video.description, required, maxlength=70)
         input(name="hashtags" type="text", placeholder="Hashtags, separated by comma", value=video.hashtags.join(), required)
