@@ -8,9 +8,10 @@
   width: 750px;
   height: 421.88px;
   .main-video {
-    width: 750px;
-    // height: 375px;
-    height: auto;
+    // width: 750px;
+    // height: auto;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
   }
   #videoControls {
